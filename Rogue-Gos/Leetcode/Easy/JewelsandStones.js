@@ -21,5 +21,17 @@
  * @return {number}
  */
 var numJewelsInStones = function (J, S) {
-
+    let jHash = {}
+    for (char of J) {
+        if (!jHash[char]) {
+            jHash[char] = char
+        }
+    }
+    let count = 0;
+    for (char of S) {
+        if (char == jHash[char]) {
+            count++
+        }
+    }
+    return count
 };
