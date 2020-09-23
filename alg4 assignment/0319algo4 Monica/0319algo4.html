@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Algorithm</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //1 given array and value Y, count and print number of array values greater than Y
+      function greaterYet(arr1, num) {
+        var count = 0;
+        for (var i = 0; i < arr1.length; i++) {
+          if (arr1[i] > num) {
+            count++;
+          }
+        }
+        return count;
+      }
+      var testYet = greaterYet([54, 2, 1, 56, 2, 3, 5, 24, 16], 10);
+      console.log(testYet); // should return 4
+
+      //2 given array, print max, min, and average values
+      function maxMinAvg(arr) {
+        var max = arr[0];
+        var min = arr[0];
+        var avg = 0;
+        for (var i = 0; i < arr.length; i++) {
+          if (max < arr[i]) {
+            max = arr[i];
+          }
+          if (min > arr[i]) {
+            min = arr[i];
+          }
+        }
+        avg = (max + min) / 2;
+        console.log(
+          "max is: " + max + ", min is: " + min + ", and avg is: " + avg
+        );
+      }
+      maxMinAvg([3, 2, 63, 100, 34, 64, 7, 25, 46]);
+
+      //3 given array of #s, create f(x) that returns a new array where negative values are replaced by 'Dojo'
+      function replaceNegatives(arr) {
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] < 0) {
+            arr[i] = "Dojo";
+          }
+        }
+        return arr;
+      }
+      console.log(replaceNegatives([1, 2, -3, -5, 5])); // should return [1,2,'Dojo','Dojo',5]
+
+      //4 given array, and indices start and end, remove values in that index range, working in-place.. (shorten array)
+      function removeVals(arr, a, b) {
+        // var last = arr.length - 1;
+        // var blast = arr.length - b;
+        var count = 0;
+        var c = b + 1;
+        console.log("arr.length before looping: " + arr.length);
+        for (var i = a; i <= b; i++) {
+          count++;
+        }
+
+        for (var j = 0; j < count; j++) {
+          if (c < arr.length) {
+            arr[a + j] = arr[c + j];
+
+            console.log(arr[c + j] + " goes into " + arr[a + j]);
+          }
+        }
+
+        //   if (c < arr.length || c + 1 < arr.length) {
+        //     arr[i] = arr[c + 1];
+        //  }
+
+        console.log("arr.length is: " + arr.length);
+        console.log("arr.length to reduce by: " + count);
+        arr.length -= count;
+        console.log("arr.length is now: " + count);
+        return arr;
+      }
+      console.log(removeVals([20, 30, 40, 50, 60, 70], 2, 4));
+
+      // should return [20,30,70]
+    </script>
+  </body>
+</html>

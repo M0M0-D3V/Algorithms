@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Algorithm</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function multiply(x, y) {
+        console.log(x);
+        console.log(y);
+      }
+      b = multiply(2, 3);
+      console.log(b);
+
+      function multiply1(x, y) {
+        return x * y;
+      }
+      b = multiply1(2, 3);
+      console.log(b);
+      console.log(multiply1(5, 2));
+
+      var x = [1, 2, 3, 4, 5, 10];
+      for (var i = 0; i < 5; i++) {
+        i = i + 3;
+        console.log(i);
+      }
+
+      var x = 15;
+      console.log(x);
+      function awesome() {
+        var x = 10;
+        console.log(x);
+      }
+      console.log(x);
+      awesome();
+      console.log(x);
+
+      for (var i = 0; i < 15; i += 2) {
+        console.log(i);
+      }
+
+      for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 2; j++) {
+          console.log(i * j);
+        }
+      }
+
+      function looping(x, y) {
+        for (var i = 0; i < x; i++) {
+          for (var j = 0; j < x; j++) {
+            console.log(i * j);
+          }
+        }
+      }
+      var z = looping1(3, 3);
+      console.log(z);
+
+      function looping1(x, y) {
+        for (var i = 0; i < x; i++) {
+          for (var j = 0; j < y; j++) {
+            console.log(i * j);
+          }
+        }
+        return x * y;
+      }
+      var zu = looping1(3, 5);
+      console.log(zu);
+
+      //Part 2
+
+      //Print 1 to x
+      function printUpTo(x) {
+        if (x > 0) {
+          for (var i = 1; i <= 1000; i++) {
+            console.log(i);
+          }
+        }
+        if (x <= 0) {
+          return false;
+        }
+      }
+      printUpTo(1000); // should print all the integers from 1 to 1000
+      var runy = printUpTo(-10); // should return false
+      console.log(runy); // should print false
+
+      //PrintSum
+      //complete the code to have function print ints from 0 - x and w each integer print the sum so far. Have the function return the final sum
+      function printSum(x) {
+        var sum = 0;
+        for (var i = 0; i <= 255; i++) {
+          console.log(
+            "each integer: " + i + " and sum so far is: " + (sum + i)
+          );
+          sum += i;
+        }
+        return sum;
+      }
+      var y2 = printSum(255); // should print all the integers from 0 to 255 and with each integer print the sum so far.
+      console.log(y2); // should print 32640
+
+      //PrintSumArray
+      //function return the sum of all the values in a given array
+      function printSumArray(x) {
+        var sum = 0;
+        for (var i = 0; i < x.length; i++) {
+          sum += x[i];
+        }
+        return sum;
+      }
+      console.log(printSumArray([1, 2, 3])); // should log 6
+
+      //BONUS: LargestElement
+      //create a function that returns the largest element in a given array. Ex: [1,30,5,7] should return 30
+      function largestElement(arrr) {
+        var max = arrr[0];
+        for (var i = 0; i < arrr.length; i++) {
+          if (max > arrr[i]) {
+            return max;
+          } else if (max < arrr[i]) {
+            max = arrr[i];
+          }
+        }
+        return max;
+      }
+      console.log(largestElement([1, 30, 5, 7]));
+    </script>
+  </body>
+</html>

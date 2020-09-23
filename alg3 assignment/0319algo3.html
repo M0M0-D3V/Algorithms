@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Algorithm</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //1 analyze array's values and return the average of its values
+      function printAverage(x) {
+        var sum = 0;
+        for (var i = 0; i < x.length; i++) {
+          sum += x[i];
+        }
+        return sum / x.length;
+      }
+      var y = printAverage([1, 2, 3]);
+      console.log(y); // should log 2
+
+      y = printAverage([2, 5, 8]);
+      console.log(y); // should log 5
+
+      //2 create an array with all odd integers between 1 and 255 inclusive
+      function returnOddArray() {
+        var newArray = [];
+        for (var i = 0; i <= 255; i++) {
+          if (i % 2 !== 0) {
+            newArray.push(i);
+          }
+        }
+        return newArray;
+      }
+      var yay = returnOddArray();
+      console.log(yay);
+
+      //3 square each value in given array, return the same array with changed values
+      function squareValues(x) {
+        for (var i = 0; i < x.length; i++) {
+          x[i] = x[i] * x[i];
+        }
+        return x;
+      }
+      var yy = squareValues([1, 2, 3]);
+      console.log(yy); // should log [1,4,9]
+
+      yy = squareValues([2, 5, 8]);
+      console.log(yy); // should log [4,25,64]
+    </script>
+  </body>
+</html>
