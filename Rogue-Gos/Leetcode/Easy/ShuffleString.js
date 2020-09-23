@@ -45,9 +45,15 @@
  * @return {string}
  */
 var restoreString = function (s, indices) {
-    let sHash = {}
-    for (let i = 0; i < s.length; i++) {
-        sHash[i] = s[i]
-
+    let hash = {}
+    for (let i = 0; i < indices.length; i++) {
+        hash[indices[i]] = s[i]
     }
+    newS = []
+    for (let i = 0; i < indices.length; i++) {
+        newS.push(hash[i])
+    }
+    return newS.join('')
 };
+
+console.log(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]))
