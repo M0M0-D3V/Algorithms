@@ -23,3 +23,27 @@ module.exports = palindrome;
 //
 //   return str === reversed;
 // }
+
+
+// students
+function isPalindrome(str, start = 0, end = str.length - 1) {
+
+}
+
+
+// LONGEST PALINDROME
+function longestPalindromeSubstring(str) {
+  if (str.length == 0) {
+    return "";
+  }
+  let size, bound, i;
+  for (size = str.length; size > 1; size--) {
+    bound = str.length - size + 1;
+    for (i = 0; i < bound; i++) {
+      if (isPalindrome(str, i, i + size - 1)) {
+        return str.substring(i, i + size);
+      }
+    }
+  }
+  return str[0];
+}
