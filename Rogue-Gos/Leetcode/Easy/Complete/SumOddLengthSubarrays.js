@@ -28,10 +28,21 @@
  */
 var sumOddLengthSubarrays = function (arr) {
     let sum = 0;
-    len = 0;
-    for (let i = 0; i < arr.length; i++) {
-        for(let j = arr.length - 1; j >=0; j--) {
-            arr.slice(i, i + arr.length - i)
+    len = 1;
+    while(len < arr.length+1) {
+        for(let i = 0; i < arr.length; i++) {
+            if((i + len - 1) < arr.length) {
+                let piece = arr.slice(i, i + len)
+                sum += piece.reduce((a, b) => {return a + b})
+            }
         }
+        len +=2
     }
-};
+    return sum
+}
+
+console.log(sumOddLengthSubarrays([1, 4, 2, 5, 3]))
+
+// THINKING PROCESS
+// Make a variable to control the length to stay odd
+// 
