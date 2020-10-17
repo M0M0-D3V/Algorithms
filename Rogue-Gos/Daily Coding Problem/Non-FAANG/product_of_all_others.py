@@ -12,8 +12,8 @@ def product_all_others(arr_ints):
     new_array = []
     for num in range(len(arr_ints)):
         new_array.append(int(math.prod(arr_ints) / arr_ints[num]))
-        print(new_array)
     return new_array
+
 
 yes = product_all_others([1, 2, 3, 4, 5])
 print(yes)
