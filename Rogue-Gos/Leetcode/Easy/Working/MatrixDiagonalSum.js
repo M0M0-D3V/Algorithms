@@ -40,15 +40,19 @@ var diagonalSum = function(mat) {
     let sum = 0
     let hash = {}
     for(let i = 0; i < mat.length; i++) {
-        let matStr = `${i}, ${i}`
+        let matStr = `${i},${i}`
         hash[matStr] = 1
         for(let j = mat.length - 1; j >= 0; j--) {
-            let jStr = `${i}, ${j}`
-            console.log(`jStr is ${jStr}`)
-            if(!hash[jStr]) {
-                console.log(`${hash[matStr]} vs ${hash[jStr]}`)
+            let jStr = `${i},${j}`
+            console.log(mat[i][j])
+            if(matStr != jStr) {
+                console.log(`${matStr} vs ${jStr}`)
                 sum += mat[i][j]
                 console.log(sum)
+                
+            }
+            else {
+                sum -= mat[i][j]
             }
         }
         console.log(hash)
@@ -57,3 +61,4 @@ var diagonalSum = function(mat) {
 }
 
 console.log(diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+console.log('should be', 1 + 5 + 9 + 3 + 7)
