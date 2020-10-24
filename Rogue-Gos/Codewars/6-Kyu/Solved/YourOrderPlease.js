@@ -32,4 +32,8 @@ function checkNum(num) {
     return foundit;
 }
 
+let pairedList = []
+
+pairedList.push([3, 4])
+console.log(pairedList)
 console.log(order("4of Fo1r pe6ople g3ood th5e the2"))
