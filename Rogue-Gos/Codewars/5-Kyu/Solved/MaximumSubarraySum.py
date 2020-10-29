@@ -10,9 +10,13 @@
 def max_sequence(arr):
     max_ending_here = max_so_far = 0
     for x in arr:
+        print(f"value at x {x}")
         max_ending_here = max(x, max_ending_here + x)
+        print(f"x is {x} and max ending here is: {max_ending_here}")
         max_so_far = max(max_so_far, max_ending_here)
+        print(
+            f"max so far is {max_so_far} and max ending here is {max_ending_here}")
     return max_so_far
 
 
-print(max_sequence([2, 1, 3, 4, -1, 2, 1, -5, 4]))
+print(max_sequence([-2, 1, 3, 4, -1, 2, 1, -5, 4]))
