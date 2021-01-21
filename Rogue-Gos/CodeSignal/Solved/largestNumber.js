@@ -19,12 +19,11 @@
 // The largest integer of length n.
                     // n is an integer type
 function largestNumber(n) {
-    
     let largest = ""
     for(let i = 0; i < n; i++) {
         largest += '9'
     }
-    return Number(largest)
+    return parseInt(largest)
 }
 
 const answer = largestNumber(2)
