@@ -1,6 +1,6 @@
 // build an algorithm to choose a project at random to work on
 
-function chooseProject(projectArray) {
+function projectRoulette(projectArray) {
     return projectArray[Math.floor((Math.random() * projectArray.length))]
 }
 
@@ -16,4 +16,4 @@ const projectIdeas = [
     "Portfolio"
 ]
 
-console.log(chooseProject(projectIdeas))
+console.log(projectRoulette(projectIdeas))
