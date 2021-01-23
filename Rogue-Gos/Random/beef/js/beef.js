@@ -1,11 +1,13 @@
-const beefObject = {
-    "regions" :[
-        {
-            "name":"CHUCK",
-            "cuts": [
-                {
-                    "name":"Blade Chuck Roast",
-                    "method":[
+$(document).ready(function () {
+
+    const beefObject = {
+        "regions" :[
+            {
+                "name":"CHUCK",
+                "cuts": [
+                    {
+                        "name":"Blade Chuck Roast",
+                        "method":[
                         "Slow-Cook"
                     ],
                     "other":[]
@@ -517,8 +519,9 @@ const beefObject = {
         }
     ]
 }
-let searchMethod = "Grill or Broil"
-let searchOther = "Lean"
+
+let searchMethod = "Roast"
+let searchOther = "Marinate"
 let countFoundMethod = 0, countFoundOther = 0
 let countRegions = beefObject.regions.length
 let countCuts = 0
@@ -558,3 +561,4 @@ console.log(`% of cuts with note ${searchOther} is: ${otheranswer.toFixed(2)}%`)
 
 // dictionary key "cooking method":
 // ways to cook is a list
+})
