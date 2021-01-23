@@ -534,7 +534,6 @@ for(let regionIdx in beefObject.regions) {
             // [x] prints all methods for cooking each cut of each region of cow
             // console.log(`      ${methodIdx}: ${beefObject.regions[regionIdx].cuts[cutIdx].method[methodIdx]}`)
             if(beefObject.regions[regionIdx].cuts[cutIdx].method[methodIdx].includes(searchMethod)) {
-                // [] print all cuts that suggest marinade
                 // console.log(beefObject.regions[regionIdx].cuts[cutIdx].name)
                 countFoundMethod++
             }
@@ -542,8 +541,7 @@ for(let regionIdx in beefObject.regions) {
         for(let otherIdx in beefObject.regions[regionIdx].cuts[cutIdx].other) {
             if(beefObject.regions[regionIdx].cuts[cutIdx].other[otherIdx].includes(searchOther)) {
                 countFoundOther++
-                // [] print all cuts that suggest marinade
-                console.log(beefObject.regions[regionIdx].cuts[cutIdx].name)
+                // console.log(beefObject.regions[regionIdx].cuts[cutIdx].name)
             }
         }
     }
