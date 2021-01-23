@@ -1,14 +1,14 @@
 $(document).ready(function () {
 
-    const beefObject = {
-        "regions" :[
-            {
-                "name":"CHUCK",
-                "cuts": [
-                    {
-                        "name":"Blade Chuck Roast",
-                        "method":[
-                        "Slow-Cook"
+const beefObject = {
+    "regions" :[
+        {
+            "name":"CHUCK",
+            "cuts": [
+                {
+                    "name":"Blade Chuck Roast",
+                    "method":[
+                    "Slow-Cook"
                     ],
                     "other":[]
                 },
@@ -520,18 +520,24 @@ $(document).ready(function () {
     ]
 }
 
+
 let searchMethod = "Roast"
 let searchOther = "Marinate"
 let countFoundMethod = 0, countFoundOther = 0
 let countRegions = beefObject.regions.length
 let countCuts = 0
+const regionsArr = []
+const cutsArr = []
+const methodArr = []
+
 for(let regionIdx in beefObject.regions) {
     // [x] prints out all the regional names of thee cow
     // console.log(`${regionIdx}: ${beefObject.regions[regionIdx].name}`)
-    // count regions
+    regionsArr.push(beefObject.regions[regionIdx].name)
     for(let cutIdx in beefObject.regions[regionIdx].cuts) {
         // [x] prints all the cuts in each region of cow
         // console.log(`   ${cutIdx}: ${beefObject.regions[regionIdx].cuts[cutIdx].name}`)
+        cutsArr.push(beefObject.regions[regionIdx].cuts[cutIdx].name)
         countCuts++
         for(let methodIdx in beefObject.regions[regionIdx].cuts[cutIdx].method) {
             // [x] prints all methods for cooking each cut of each region of cow
@@ -549,7 +555,19 @@ for(let regionIdx in beefObject.regions) {
         }
     }
 }
+let printRegions = ""
+for (let region of regionsArr) {
+    printRegions += region + "\n"
+}
+let printCuts = ""
+for (let cut of cutsArr) {
+    printCuts += cut + "\n"
+}
+document.getElementById("beefRegions").innerHTML += printRegions;
+document.getElementById("beefCuts").innerHTML += printCuts;
 
+const db = JSON.stringify(beefObject)
+document.getElementById("justBeef").innerHTML = db
 
 console.log(`countRegions: ${countRegions}, countCuts: ${countCuts}, countFoundMethod: ${countFoundMethod}`)
 let answer = countFoundMethod / countCuts * 100
