@@ -521,8 +521,8 @@ const beefObject = {
 }
 
 
-let searchMethod = "Roast"
-let searchOther = "Marinate"
+let searchMethod = "Skillet"
+let searchOther = "Lean"
 let countFoundMethod = 0, countFoundOther = 0
 let countRegions = beefObject.regions.length
 let countCuts = 0

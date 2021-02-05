@@ -32,7 +32,10 @@
 // The sum of the digits the digital timer would show.
 
 function lateRide(n) {
-    let digits = Math.floor(n / 60).toString() + Math.floor(((n / 60) - Math.floor(n / 60)) * 60).toString()
+    console.log(Math.floor(n / 60).toString())
+    console.log(Math.round(((n / 60) - Math.round(n / 60)) * 60).toString())
+    let digits = Math.floor(n / 60).toString() + (Math.round(((n / 60) - Math.round(n / 60)) * 60)).toString()
+    console.log(digits)
     let sumOfDigits = 0
     for(let num of digits) {
         sumOfDigits += parseInt(num)
@@ -40,4 +43,7 @@ function lateRide(n) {
     return sumOfDigits
 }
 
-console.log(lateRide(808))
+console.log(lateRide(1003))
+
+console.log(1003 / 60)
+console.log(Math.floor(1003 / 60))
