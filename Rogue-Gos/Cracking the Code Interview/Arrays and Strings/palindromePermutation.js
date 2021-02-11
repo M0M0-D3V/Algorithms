@@ -19,11 +19,12 @@ function isPalindromePermutation(string1) {
             // if already seenChar then add 1
             seenChar[char]++
             // check if seenChar is even or odd
-            if(seenChar[char] % 2 != 0) {
-                // if odd, then increase counter
-                counter++
-                console.log(`has own prop ${char} and seenChar[char] is ${seenChar[char]} and counter is ${counter}`)
-            }
+        }
+        if(seenChar[char] % 2 != 0) {
+            // if odd, then increase counter
+            console.log(counter)
+            counter++
+            console.log(`has own prop ${char} and seenChar[char] is ${seenChar[char]} and counter is ${counter}`)
         }
         else {
             seenChar[char] = 1
@@ -36,4 +37,4 @@ function isPalindromePermutation(string1) {
     return false
 }
 
-console.log(isPalindromePermutation("racecgar"))
+console.log(isPalindromePermutation("racecar"))
