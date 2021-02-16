@@ -13,7 +13,9 @@ const projectIdeas = [
     "Python - Loot Game",
     "Python/Django - Pray With Grace",
     "BUILD A SHINY NEW PROJECT!!!",
-    "Portfolio"
+    "Portfolio",
+    "React - What's our Beef?",
+    "JAVA - Events"
 ]
 
 console.log(projectRoulette(projectIdeas))
