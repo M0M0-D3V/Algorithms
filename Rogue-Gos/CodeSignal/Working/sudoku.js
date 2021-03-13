@@ -49,16 +49,62 @@
 // Return true if grid represents a valid Sudoku puzzle, otherwise return false.
 
 function sudoku2(grid) {
+  // loop through the matrix
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
+      // check if has a value
       if (grid[i][j] != ".") {
-        console.log(`not null at ${i} x ${j}`);
+        // test for same value in column
+        let value = grid[i][j];
+        console.log(`not null at ${i} x ${j}: ${value}`);
+        if (checkColumn(grid, value, j)) {
+          return false;
+        }
+        // test for same value in row
+        if (checkRow(grid, value, i)) {
+          return false;
+        }
+        // test for same value in 3x3 subgrid
+        if (checkSubGrid(grid, value, i, j)) {
+          return false;
+        }
       }
     }
   }
+  return true;
 }
 
-sudoku2([
+// function checks for value in the same column (up and down)
+function checkColumn(grid, value, col) {
+  let count = 0;
+  for (let j = 0; j < grid.length; j++) {
+    // stuff
+    if (grid[j][col] == value) {
+      count++;
+    }
+  }
+  console.log(`count is: ${count}`);
+  return count > 1;
+}
+
+// function checks for value in the same row (left and right)
+function checkRow(grid, value, row) {
+  let count = 0;
+  for (let i = 0; i < grid.length; i++) {
+    // stuff
+    if (grid[row][i] == value) {
+      count++;
+    }
+  }
+  console.log(`count is: ${count}`);
+  return count > 1;
+}
+
+function checkSubGrid(grid, value, row, col) {
+  // stuff
+}
+
+let solve = sudoku2([
   [".", ".", ".", "1", "4", ".", ".", "2", "."],
   [".", ".", "6", ".", ".", ".", ".", ".", "."],
   [".", ".", ".", ".", ".", ".", ".", ".", "."],
@@ -69,3 +115,5 @@ sudoku2([
   [".", ".", ".", ".", ".", "7", ".", ".", "."],
   [".", ".", ".", "5", ".", ".", ".", "7", "."],
 ]);
+
+console.log(solve);
