@@ -68,4 +68,4 @@ console.log(nthLast(arr1, 1));
 
 /* ******************************************************************************** */
 
-// After finishing, finish the basic algos from yesterday that you did not finish.
+// After finishing, start on the Basic13.
