@@ -50,19 +50,21 @@ console.log(encodeStr("aaaabbcddd"));
     Given a string, create a function that repeats each letter by the number that follows
   */
 
-// const str1 = "a3b2c1d3";
-// const expected1 = "aaabbcddd";
+// const str1 = "a4b2c1d3";
+// const expected1 = "aaaabbcddd";
 
 function decodeStr(str) {
   // code here
   var newStr = "";
-  for (var i = 1; i < str.length; i += 2) {
-    for (var i = 0; i < parseInt(str[i]); i++) {
-      newStr += str[i - 1];
-      console.log(newStr);
+  for (var i = 0; i < str.length; i++) {
+    var convertNum = parseInt(str[i]);
+    if (convertNum) {
+      for (var j = 0; j < convertNum; j++) {
+        newStr += str[i - 1];
+      }
     }
   }
   return newStr;
 }
 
-console.log(decodeStr("a3b2c1d3"));
+console.log(decodeStr("a4b2c1d3"));
