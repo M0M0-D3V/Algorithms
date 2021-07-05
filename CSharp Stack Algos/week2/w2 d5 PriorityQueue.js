@@ -66,3 +66,14 @@ q.enqueue({ name: "The Instructional One" }, 1);
 
 // => arr == [ 'A', 'B', 'C', 'D', 'E' ]
 // whep! let's see how we did! ;
+/*
+  Draw a to do list or urgent care list with two columns: item, and importance
+    - the to do, is your queue item
+  Have students give you a to do and it's importance with 1 being most important
+  When the list is empty, where does it go?
+  Once first item is added, have students give more to dos,
+  explain the process for how you decide where to add the new to do,
+  based on it's importance, is essentially a loop. You visually loop
+  through the list until you find the first item that is not as
+  important, then you put the new item in that position.
+*/
