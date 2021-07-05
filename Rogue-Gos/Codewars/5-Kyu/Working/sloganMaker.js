@@ -8,8 +8,10 @@ function sloganMaker(array) {
   // remove duplicate words from array
   let newArr = removeDuplicates(array);
   let results = [];
+//   outerloop goes through each word in array
   for (var i = 0; i < newArr.length; i++) {
     let temp = newArr[i];
+    // inner loop concats to the starting word from outer loop
     for (var j = i + 1; j < newArr.length; j++) {
       temp += " " + newArr[j];
     }
