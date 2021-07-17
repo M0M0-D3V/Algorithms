@@ -30,7 +30,7 @@ function howMany(str) {
   return counter;
 }
 
-console.log(repeatedString("aba", 10));
+// console.log(repeatedString("aba", 10));
 
 // ************
 // there is a string s, of lowercase english letters that is repeated infinitely many times. given an integer, n, find and print the number of letter a's in the first n letters of the infinite string
@@ -69,4 +69,48 @@ function count(str, len) {
   }
   return count;
 }
-console.log(repeatedString2("aba", 10));
+// console.log(repeatedString2("aba", 10));
+
+// ************
+// there is a string s, of lowercase english letters that is repeated infinitely many times.
+// given an integer, n, find and print the number of letter a's in the first n letters of the infinite string
+
+// example:
+// input s: 'abcac'
+// input n: 10
+// outcome: 4
+
+function repeatedString3(s, n) {
+  if (s.length === n) {
+    return countChar(s);
+  }
+  else if(s.length > n) {
+    let newStr = makeStr(s, n)
+    return countChar(newStr);
+  }
+  else {
+    let times = Math.floor(n / s.length)
+    let remainder = n % s.length
+    return countChar(s) * times + remainder
+  }
+}
+
+function countChar(s) {
+  let count = 0
+  for(let char of s) {
+    if(char === "a") {
+      count++
+    }
+  }
+  return count
+}
+
+function makeStr(s, n) {
+  let newString = ""
+  for(let i = 0; i < n; i++) {
+    newString += s[i]
+  }
+  return newString;
+}
+
+console.log(repeatedString3("a gahweiujfawnksdhvaliuwehgfiuawheiawhefhslauhilruelhekhrg;oawiho;vanhgwoaeaahagaa;aaiwaeruaahaaagafaaaa", 2354))
