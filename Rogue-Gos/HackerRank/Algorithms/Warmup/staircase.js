@@ -28,14 +28,14 @@
 function staircase(n) {
     for(let i = 0; i < n; i++) {
         let oneStair = ""
-        for(let j = 0; i < n - i; j++) {
+        for(let j = 0; j < n - i - 1; j++) {
             oneStair += " "
         }
-        for(let k = 0; k < i; k++) {
+        for(j = n - i; j < n + 1; j++) {
             oneStair += "#"
         }
         console.log(oneStair)
     }
 }
 
-staircase(4)
+staircase(6)
