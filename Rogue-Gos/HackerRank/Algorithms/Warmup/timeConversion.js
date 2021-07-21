@@ -33,4 +33,4 @@ function timeConversion(s) {
     return newTime
 }
 
-timeConversion("12:05:45AM")
+timeConversion("11:05:45PM")
