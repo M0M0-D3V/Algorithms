@@ -10,7 +10,6 @@ Given an array of bird sightings where every element represents a bird type id, 
 function migratoryBirds(arr) {
     let freqTable = {}
     for(let num of arr) {
-        console.log(num)
         if(!freqTable[num]) {
             freqTable[num] = 1
         }
@@ -18,13 +17,21 @@ function migratoryBirds(arr) {
             freqTable[num]++
         }
     }
-    let newArr = [];
-    for(let val in freqTable) {
-        newArr.push([parseInt(val), freqTable[val]])
-        console.log(newArr)
+    let max = 1
+    for(let num in freqTable) {
+        if(freqTable[num] > max) {
+            max = freqTable[num]
+        }
     }
-    let max = Math.max(newArr.map((ea, i) => ea[1]))
-    console.log(`max is: ${max}`)
+    let newArr = [];
+    for(let num in freqTable) {
+        if(freqTable[num] === max) {
+            newArr.push([parseInt(num), freqTable[num]])
+            console.log(newArr)
+        }
+    }
+    console.log(`max is: ${newArr[0][0]}`)
+    return newArr[0][0]
 }
 
 migratoryBirds([1, 1, 2, 2, 3])
