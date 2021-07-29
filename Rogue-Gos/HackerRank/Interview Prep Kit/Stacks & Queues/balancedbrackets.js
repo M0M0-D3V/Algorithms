@@ -33,11 +33,18 @@ function isBalanced(s) {
     let stack = []
     let queue = []
     for(let char of s) {
-        if(stack.length == 0 && (char == "(" || char == "{" || char == "[")) {
-            stack.push(char)
+        if(char == "(" || char == "{" || char == "[") {
+            if(stack.length == 0 || (stack[stack.length - 1] == "(" || stack[stack.length - 1] == "{" || stack[stack.length - 1] == "[")) {
+                stack.push(char)
+            }
         }
-        
+        else if(char == ")" || char == "}" || char == "]") {
+            if(stack.length == 0 || (stack[stack.length - 1] != "(" || stack[stack.length - 1] == "{" || stack[stack.length - 1] == "[")) {
+                result = "No";
+            }
+        }
     }
+    console.log(stack)
     return result
 }
-isBalanced("{[(])}")
+console.log(isBalanced("{[(])}"))
