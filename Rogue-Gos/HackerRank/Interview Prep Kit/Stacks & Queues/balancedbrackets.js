@@ -31,20 +31,24 @@
 function isBalanced(s) {
     let result = "Yes";
     let stack = []
-    let queue = []
     for(let char of s) {
+        const lastIn = stack[stack.length - 1]
         if(char == "(" || char == "{" || char == "[") {
-            if(stack.length == 0 || (stack[stack.length - 1] == "(" || stack[stack.length - 1] == "{" || stack[stack.length - 1] == "[")) {
+            if(stack.length == 0 || (lastIn == "(" || lastIn == "{" || lastIn == "[")) {
                 stack.push(char)
             }
         }
-        else if(char == ")" || char == "}" || char == "]") {
-            if(stack.length == 0 || (stack[stack.length - 1] != "(" || stack[stack.length - 1] == "{" || stack[stack.length - 1] == "[")) {
-                result = "No";
+        else if(stack.length > 0) {
+            if((char == ")" && lastIn == "(") || (char == "}" && lastIn == "{") || (char == "]" && lastIn == "[")) {
+                stack.pop();
+            }
+            else {
+                result = "No"
             }
         }
     }
-    console.log(stack)
     return result
 }
+console.log(isBalanced("{[()]}"))
 console.log(isBalanced("{[(])}"))
+console.log(isBalanced("{{[[(())]]}}"))
