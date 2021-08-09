@@ -90,8 +90,8 @@ function repeatedString3(s, n) {
   }
   else {
     let times = Math.floor(n / s.length)
-    let remainder = n % s.length
-    return countChar(s) * times + remainder
+    let remainder = makeStr(s, n % s.length)
+    return countChar(s) * times + countChar(remainder)
   }
 }
 
@@ -113,4 +113,4 @@ function makeStr(s, n) {
   return newString;
 }
 
-console.log(repeatedString3("a gahweiujfawnksdhvaliuwehgfiuawheiawhefhslauhilruelhekhrg;oawiho;vanhgwoaeaahagaa;aaiwaeruaahaaagafaaaa", 2354))
+console.log(repeatedString3("abr", 20))
