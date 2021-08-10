@@ -29,6 +29,7 @@
 
 function minimumBribes(q) {
     let count = 0
+    let ohcrap = ""
     for(let i = 0; i < q.length; i++) {
         let person = q[i]
         if(person - i > 1) {
