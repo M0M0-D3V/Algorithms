@@ -3,6 +3,9 @@
 function convertFrac(lst) {
   // each index of array is a fraction, 0 index is numerator, 1 index is denominator
   // while isFound is false
+  if(lst.length == 0) {
+    return ""
+  }
   var isFound = false;
   var denom = 0;
   var multiplier = 1;
@@ -34,3 +37,5 @@ var result = convertFrac([
   [3, 4],
 ]);
 console.log(result);
+
+console.log(convertFrac([[1, 2], [1, 3,], [1, 4]]))
