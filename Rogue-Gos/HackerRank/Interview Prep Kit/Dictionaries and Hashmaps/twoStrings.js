@@ -47,19 +47,17 @@
  */
 
 function twoStrings(s1, s2) {
-    var v = Array(MAX_CHAR).fill(0);
-    
-    // increment vector index for every
-    // character of str1
-    for (var i = 0; i < s1.length; i++) {
-        v[s1[i] - 'a'] = true;
+    let flag = false
+    let s1Split = s1.split("")  
+    let s2Split = s2.split("")
+    for(let i = 0; i < s1Split.length; i++) {
+        if (s1Split[i] === " ") {
+            s1Split.splice(i, 1)
+        }
+        if(s2Split.includes(s1Split[i])) {
+            flag = true
+        }
     }
-    
-    // checking common substring of str2 in str1
-    for (var i = 0; i < s2.length; i++) {
-        if (v[s2[i] - 'a'])
-        return true;
-    }
-    
-    return false;    
+    return flag === true ? "YES" : "NO" 
 }
+console.log(twoStrings("hello world", "maaaa"))
