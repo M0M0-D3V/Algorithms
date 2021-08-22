@@ -61,3 +61,4 @@ function twoStrings(s1, s2) {
     return flag === true ? "YES" : "NO" 
 }
 console.log(twoStrings("hello world", "maaaa"))
+// something 
