@@ -24,14 +24,14 @@
 // The minimal number of statues that need to be added to existing statues such that it contains every integer size from an interval [L, R] (for some L, R) and no other sizes.
 
 function makeArrayConsecutive2(statues) {
-    let sorted = statues.sort()
+    let sorted = statues.sort((a,b) => a-b)
     let count = 0
     for(let i = 0; i < statues.length - 1; i++) {
-        if(sorted[i] + 1 != sorted[i + 1]) {
+        if(sorted[i + 1] - sorted[i] != 1) {
             count += sorted[i + 1] - sorted[i] - 1
         }
     }
     return count
 }
 
-console.log(makeArrayConsecutive2([6, 2, 3, 8]))
+console.log(makeArrayConsecutive2([6, 2, 3, 8, 10]))
