@@ -73,7 +73,7 @@ function sudoku2(grid) {
   }
   return true;
 }
-
+// comemnt
 // function checks for value in the same column (up and down)
 function checkColumn(grid, value, col) {
   let count = 0;
