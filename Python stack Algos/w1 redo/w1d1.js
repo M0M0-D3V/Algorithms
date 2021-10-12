@@ -13,7 +13,15 @@
 
 function reverseString(str) {
   // code here
+  let newStr = ""
+  for(let i = str.length - 1; i >= 0; i--) {
+    newStr += str[i]
+  }
+  return newStr
 }
+
+console.log(reverseString("creature"))
+console.log(reverseString("dog"))
 
 /*****************************************************************************/
 
@@ -34,7 +42,17 @@ function reverseString(str) {
 
 function acronymize(str) {
   // code here
+  str = str.trim()
+  let newStr = str[0]
+  for(let i = 0; i < str.length - 1; i++) {
+    if(str[i] == " ") {
+      newStr += str[i + 1]
+    }
+  }
+  return newStr.toUpperCase()
 }
+
+console.log(acronymize(" there's no free lunch - gotta pay yer way. "))
 
 /*****************************************************************************/
 
@@ -54,4 +72,8 @@ function acronymize(str) {
 
 function caseInsensitiveStringCompare(strA, strB) {
   // code here
+  return strA.toUpperCase() === strB.toUpperCase()
 }
+
+console.log(caseInsensitiveStringCompare("ABC", "abc"))
+console.log(caseInsensitiveStringCompare("ABC", "abd"))
