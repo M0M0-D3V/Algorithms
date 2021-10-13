@@ -28,9 +28,17 @@
 // const arr6 = [1, 2, 3]
 // separator is not given
 // const expected 6 = "1, 2, 3"
-function join(arr, separator) {
+function join(arr, separator = ", ") {
   // code here
+  let newStr = ""
+  for(let i = 0; i < arr.length - 1; i++) {
+    newStr += arr[i] + separator
+  }
+  newStr += arr[arr.length - 1]
+  return newStr
 }
+
+console.log(join([1, 2, 3, 4, 5, 6]))
 /*****************************************************************************/
 
 /*
@@ -44,5 +52,25 @@ function join(arr, separator) {
 // const expected1 = "1, 13-15, 37-38, 70";
 
 function bookIndex(pageNums) {
-  // code here
+  let newStr = ""
+  let start
+  let end
+  for(let i = 0; i < pageNums.length - 1; i++) {
+    if(pageNums[i + 1] != pageNums[i] + 1) {
+      newStr += pageNums[i] + ", "
+    } else {
+      start = pageNums[i]
+      while(pageNums[i] + 1 === pageNums[i + 1] && i < pageNums.length) {
+        console.log(i)
+        i++
+        console.log("i is now: ", pageNums[i])
+      }
+      end = pageNums[i]
+      newStr += `${start}-${end}, `
+    }
+  }
+  newStr += pageNums[pageNums.length - 1]
+  return newStr
 }
+
+console.log(bookIndex([1, 2, 3, 4, 5, 13, 14, 15, 17, 20, 24, 25, 26, 27]))
