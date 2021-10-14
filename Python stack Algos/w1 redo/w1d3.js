@@ -24,7 +24,25 @@
 
 function encodeStr(str) {
   // your code
+  let newStr = ""
+  for(let i = 0; i < str.length; i++) {
+    let count = 1
+    newStr += str[i]
+    while(str[i] == str[i + 1]) {
+      count++
+      i++
+    }
+    newStr += count
+  }
+  if(newStr.length >= str.length) {
+    return str
+  }
+  return newStr
 }
+
+console.log(encodeStr("aaaabbcddd"))
+console.log(encodeStr("a"))
+console.log(encodeStr("aaa"))
 
 /*****************************************************************************/
 
@@ -39,4 +57,20 @@ function encodeStr(str) {
 
 function decodeStr(str) {
   // code here
+  let newStr = ""
+  for(let i = 0; i < str.length; i++) {
+    if(isNaN(str[i])) {
+      newStr += str[i]
+    }
+    if(!isNaN(str[i + 1])) {
+      let count = parseInt(str[i + 1])
+      while(count > 1) {
+        newStr += str[i]
+        count--
+      }
+    }
+  }
+  return newStr
 }
+
+console.log(decodeStr("a3b2c1d3"))
