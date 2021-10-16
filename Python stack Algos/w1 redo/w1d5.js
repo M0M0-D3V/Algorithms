@@ -17,7 +17,17 @@
 
 function zipArraysIntoMap(keys, values) {
   // code here
+  let hash = {}
+  if(keys.length != values.length) {
+    return null
+  }
+  for(let i = 0; i < keys.length; i++) {
+    hash[keys[i]] = values[i]
+  }
+  return hash
 }
+
+console.log(zipArraysIntoMap(["abc", 3, "yo"], [42, "wassup", true]))
 
 /*****************************************************************************/
 
@@ -43,4 +53,11 @@ function zipArraysIntoMap(keys, values) {
 
 function invertObj(obj) {
   // code here
+  let newObj = {}
+  for(let key in obj) {
+    newObj[obj[key]] = key
+  }
+  return newObj
 }
+
+console.log(invertObj({name: "Zaphod", charm: "high", morals: "dicey"}))

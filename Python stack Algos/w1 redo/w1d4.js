@@ -21,7 +21,16 @@
 
 function isPalindrome(str) {
   // code here
+  for(let i = 0; i < str.length / 2; i++) {
+    if(str[i] != str[str.length - 1 - i]) {
+      return false
+    }
+  }
+  return true
 }
+
+console.log(isPalindrome("racecar"))
+console.log(isPalindrome("!dude!"))
 
 /*****************************************************************************/
 
@@ -48,4 +57,17 @@ function isPalindrome(str) {
 
 function longestPalindromicSubstring(str) {
   // code here
+  let longest = str[0]
+  for(let i = 0; i < str.length; i++) {
+    for(let j = i + 1; j < str.length; j++) {
+      let temp = str.substring(i, j + 1)
+      if(isPalindrome(temp) && temp.length > longest.length) {
+        longest = temp
+      }
+    }
+  }
+  return longest
 }
+
+console.log(longestPalindromicSubstring("uh, not much"))
+console.log(longestPalindromicSubstring("Yikes! my favorite racecar erupted!"))
