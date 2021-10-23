@@ -56,9 +56,27 @@ console.log(includes("loo","helloo"))
 // const str2 = "hello world";
 // const expected2 = "olleh dlrow";
 
-// const str3 = "abc def ghi";
+const str3 = "abc def ghi";
 // const expected3 = "cba fed ihg";
 
 function reverseWordsSplit(wordsStr) {
   // code here
+  let newStr = ""
+  let temp = ""
+  for(let i = 0; i < wordsStr.length; i++) {
+    if(wordsStr[i] != " ") {
+      temp += wordsStr[i]
+    }
+    else {
+      console.log(`temp is ${temp}`)
+      for(let j = 0; j < temp.length; j++) {
+        newStr = temp[j] + newStr
+      }
+      newStr = " " + newStr
+      temp = ""
+    }
+  }
+  newStr = temp + newStr
+  return newStr
 }
+console.log(reverseWordsSplit(str3))
