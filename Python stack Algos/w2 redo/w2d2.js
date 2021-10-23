@@ -38,8 +38,10 @@ console.log(stringDedupe(str2))
 
 function includes(compareStr, longStr) {
   // code here
+  console.log(longStr.contains(compareStr))
 }
 
+includes("helloo","loo")
 /*****************************************************************************/
 /*
       Given a string containing space separated words
