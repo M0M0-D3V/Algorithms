@@ -8,25 +8,43 @@
 // const rotateAmnt1 = 0
 // const expected1 = "Hello World"
 
-// const str2 = "Hello World"
 // const rotateAmnt2 = 1
 // const expected2 = "dHello Worl"
 
-// const str3 = "Hello World"
 // const rotateAmnt3 = 2
 // const expected3 = "ldHello Wor"
 
-// const str4 = "Hello World"
 // const rotateAmnt4 = 4
 // const expected4 = "orldHello W"
 
-// const str5 = "Hello World"
 // const rotateAmnt4 = 26
 // const expected4 = "orldHello W"
 
 function rotateStr(str, n) {
   // code here
+  if(n == 0) {
+    return str
+  }
+  else if(n > str.length) {
+    n = n % str.length
+  }
+  let temp = ""
+  for(let i = str.length - n; i < str.length; i++) {
+    temp += str[i]
+  }
+  for(let i = 0; i < str.length - n; i++) {
+    temp += str[i]
+  }
+  str = temp
+  return str
 }
+
+console.log(rotateStr("Hello World", 0))
+console.log(rotateStr("Hello World", 1))
+console.log(rotateStr("Hello World", 2))
+console.log(rotateStr("Hello World", 3))
+console.log(rotateStr("Hello World", 4))
+console.log(rotateStr("Hello World", 26))
 
 /*****************************************************************************/
 

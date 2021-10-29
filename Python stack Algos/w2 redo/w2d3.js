@@ -1,7 +1,3 @@
-// REMEMBER TO SHARE SCREEN OR LIVESHARE
-// TAKE TURNS SPEAKING
-// ATTENDANCE WILL BE ADJUSTED BASED ON PARTICIPATION
-
 /*
   Parens Valid
 
@@ -26,8 +22,25 @@
 
 function parensValid(str) {
   // code here
+  let count = 0
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] == "(") {
+      count++
+    }
+    else if(str[i] == ")") {
+      count--
+    }
+    if(count < 0) {
+      return false
+    }
+  }
+  return count == 0
 }
 
+console.log(parensValid("Y(3(p)p(3)r)s"))
+console.log(parensValid("N(0(p)3"))
+console.log(parensValid("N(0)t ) 0(k"))
+console.log(parensValid("a(b))(c"))
 /*****************************************************************************/
 
 /*
@@ -47,4 +60,20 @@ function parensValid(str) {
 
 function bracesValid(str) {
   // code here
+  let map = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  }
+  let track = []
+  for(let i = 0; i < str.length; i++) {
+    if(map.hasOwnProperty(str[i])){
+      track.push(str[i])
+    }
+    else if(track.length > 0 && str[i] == map[str[i]] ) {
+      track.pop()
+    }
+  }
+  return track
 }
+console.log(bracesValid("W(a{t}s[o(n{ c}o)m]e )h[e{r}e]!"))
