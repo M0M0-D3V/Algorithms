@@ -22,29 +22,28 @@
 
 function rotateStr(str, n) {
   // code here
-  if(n == 0) {
-    return str
+  if (n == 0) {
+    return str;
+  } else if (n > str.length) {
+    n = n % str.length;
   }
-  else if(n > str.length) {
-    n = n % str.length
+  let temp = "";
+  for (let i = str.length - n; i < str.length; i++) {
+    temp += str[i];
   }
-  let temp = ""
-  for(let i = str.length - n; i < str.length; i++) {
-    temp += str[i]
+  for (let i = 0; i < str.length - n; i++) {
+    temp += str[i];
   }
-  for(let i = 0; i < str.length - n; i++) {
-    temp += str[i]
-  }
-  str = temp
-  return str
+  str = temp;
+  return str;
 }
 
-console.log(rotateStr("Hello World", 0))
-console.log(rotateStr("Hello World", 1))
-console.log(rotateStr("Hello World", 2))
-console.log(rotateStr("Hello World", 3))
-console.log(rotateStr("Hello World", 4))
-console.log(rotateStr("Hello World", 26))
+console.log(rotateStr("Hello World", 0));
+console.log(rotateStr("Hello World", 1));
+console.log(rotateStr("Hello World", 2));
+console.log(rotateStr("Hello World", 3));
+console.log(rotateStr("Hello World", 4));
+console.log(rotateStr("Hello World", 26));
 
 /*****************************************************************************/
 
@@ -65,4 +64,17 @@ console.log(rotateStr("Hello World", 26))
 
 function isRotation(s1, s2) {
   // is here
+  let temp = "";
+  let idx = s2.indexOf(s1[0]);
+  for (let i = idx; i < s2.length; i++) {
+    temp += s2[i];
+  }
+  if (idx > 0) {
+    for (let i = 0; i < idx; i++) {
+      temp += s2[i];
+    }
+  }
+  return s1 == temp;
 }
+console.log(isRotation("ABACD", "ACDAB"));
+console.log(isRotation("ABCD", "CADBA"));
