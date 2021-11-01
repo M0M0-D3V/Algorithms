@@ -23,6 +23,22 @@
 // const expected4 = true
 
 function binarySearch(sortedNums, searchNum) {
-    // code here
+  // code here
+  while(sortedNums.length > 1) {
+
+    let midIdx = Math.floor(sortedNums.length / 2) - 1
+    if(searchNum == sortedNums[midIdx]) {
+      return true
+    }
+  if(searchNum > sortedNums[midIdx]) {
+    for(let i = 0; i < sortedNums.length - 1; i++){
+      sortedNums[i] = sortedNums[midIdx + i + 1]
+      console.log(sortedNums)
+    }
   }
-  
+  sortedNums.length = midIdx + 1
+  console.log(sortedNums)
+}
+  return false
+}
+console.log(binarySearch([1, 3, 5, 6], 4))
