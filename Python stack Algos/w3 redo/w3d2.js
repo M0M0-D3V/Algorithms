@@ -41,4 +41,4 @@ function binarySearch(sortedNums, searchNum) {
 }
   return false
 }
-console.log(binarySearch([1, 3, 5, 6], 4))
+console.log(binarySearch([1, 2, 3, 3, 3, 3, 3, 5, 6], 5))

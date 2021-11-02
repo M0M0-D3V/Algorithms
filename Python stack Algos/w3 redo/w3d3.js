@@ -21,7 +21,22 @@
 // const nums3 = [1, 1, 2, 3, 3, 4]
 // const expected3 = [1, 2, 3, 4]
 
-function removeDuplicates(nums) {}
+function removeDuplicates(nums) {
+  // first bonus, O(n) w/new array
+  let newArr = [nums[0]]
+  for(let i = 1; i < nums.length; i++) {
+    if(nums[i - 1] != nums[i]) {
+      newArr.push(nums[i])
+    }
+  }
+  return newArr
+}
+
+console.log(removeDuplicates([1, 1, 1, 1, 2, 2, 3, 3, 3, 4]))
+
+function removeDuplicates2(nums) {
+  // in place, no new array
+}
 
 /*****************************************************************************/
 
@@ -56,4 +71,38 @@ function removeDuplicates(nums) {}
 // const nums6 = [5, 1, 4, 1, 5, 4];
 // const expected6 = [];
 
-function mode(nums) {}
+function mode(nums) {
+  if(nums.length < 1) {
+    return []
+  }
+  let count = {}
+  let max
+  let allSame = true
+  let ans = []
+  for(let i = 0; i < nums.length; i++) {
+    if(count[nums[i]]) {
+      count[nums[i]]++
+      max = count[nums[i]]
+    }
+    else{
+      count[nums[i]] = 1
+    }
+  }
+  for(let num in count) {
+    if(count[num] != max) {
+      allSame = false
+    }
+    else {
+      ans.push(parseInt(num))
+    }
+  }
+  if(allSame) {
+    return []
+  }
+  return ans
+}
+
+console.log(mode([5, 1, 4, 1]))
+console.log(mode([5, 1, 4, 1, 5]))
+console.log(mode([5, 1, 4, 1, 5, 4]))
+console.log(mode([5, 1, 4, 1, 5, 4, 1, 1, 2, 2, 2, 2]))
