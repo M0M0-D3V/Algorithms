@@ -4,12 +4,12 @@
   using the standard US denominations
 */
 
-// const us_dollar = {
-//   quarter: 25,
-//   dime: 10,
-//   nickel: 5,
-//   penny: 1,
-// }
+const us_dollar = {
+  quarter: 25,
+  dime: 10,
+  nickel: 5,
+  penny: 1,
+}
 
 // const cents1 = 25
 // const expected1 = { quarter: 1 }
@@ -24,8 +24,27 @@
 // const expected4 = { quarter: 3, dime: 2, penny: 4 }
 
 function fewestCoinChange(cents) {
-    // code here
+  // code here
+  let answer = {}
+  if(cents > us_dollar.quarter) {
+    answer['quarter'] = Math.floor(cents / us_dollar.quarter)
+    cents = cents % us_dollar.quarter
+  }
+  if(cents > us_dollar.dime) {
+    answer['dime'] = Math.floor(cents / us_dollar.dime)
+    cents = cents % us_dollar.dime
+  }
+  if(cents > us_dollar.nickel) {
+    answer['nickel'] = Math.floor(cents / us_dollar.nickel)
+    cents = cents % us_dollar.nickel
+  }
+  if(cents > us_dollar.penny){
+    answer['penny'] = cents
+  }
+  return answer
 }
+
+console.log(fewestCoinChange(50))
 
 /* ******************************************************************************** */
 
@@ -56,5 +75,13 @@ function fewestCoinChange(cents) {
 // const expected4 = 6;
 
 function missingValue(nums) {
-    // code here
+  // code here
+  nums.sort()
+  console.log(nums)
+  for(let i = 1; i < nums.length; i++) {
+    if(nums[i - 1] + 1 != nums[i]) {
+      return nums[i - 1] + 1
+    }
+  }
 }
+console.log(missingValue([2, -4, 0, -3, -2, 1]))
