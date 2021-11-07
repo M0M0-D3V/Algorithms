@@ -48,8 +48,14 @@ console.log(sumArr([1, 2, 3]))
 // const num3 = -1
 // const expected3 = 0
 
-function recursiveSigma(n) {
+function recursiveSigma(n, sum = 0) {
   // code here
   n = Math.floor(n)
-  
+  if(n < 1) {
+    return sum
+  }
+  sum += n
+  n--
+  return recursiveSigma(n, sum)
 }
+console.log(recursiveSigma(11))
