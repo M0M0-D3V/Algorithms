@@ -37,6 +37,7 @@
 
 function binarySearch(sortedNums, searchNum) {
   // code here
+  
 }
 
 /*****************************************************************************/

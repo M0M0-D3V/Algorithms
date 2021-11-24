@@ -28,13 +28,20 @@
 
 function factorial(n) {
   // code here
-  n = Math.floor(n)
+  // n = Math.floor(n)
   if(n == 0 || n < 0) {
     return 1
   }
-  
+  else {
+    let old = n
+    n--
+    return old * factorial(n)
+  }
 }
 
+console.log(factorial(3))
+console.log(factorial(4))
+console.log(factorial(5))
 /*****************************************************************************/
 
 /*
@@ -66,4 +73,17 @@ function factorial(n) {
 
 function fibonacci(n) {
   // code here
+  if(n == 0) {
+    return 0
+  }
+  if(n == 1 || n == 2) {
+    return 1
+  }
+  // if n is 3
+  return fibonacci(n - 1) + fibonacci(n - 2)
 }
+
+console.log(fibonacci(2))
+console.log(fibonacci(3))
+console.log(fibonacci(4))
+console.log(fibonacci(5))
